@@ -16,20 +16,20 @@ paddle.draw(ctx);
 
 
 
-let lastTime = 0;
+let lastTime = 0; // Game starting time
 
 function gameLoop(timeStamp) {
 
-  let deltaTime = timeStamp - lastTime;
-  lastTime = timeStamp;
+  let deltaTime = timeStamp - lastTime; // Calculates time elapsed between current frame and previous frame
+  lastTime = timeStamp; // sets up for above line in next frame's calculation
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clears canvas
 
-  paddle.update(deltaTime);
-  paddle.draw(ctx);
+  paddle.update(deltaTime); // Updates paddle's coordinates based on speed in update function (+ 5/deltaTime)
+  paddle.draw(ctx); // Re-draws paddle based on new coordinates
 
 
-  requestAnimationFrame(gameLoop);
+  requestAnimationFrame(gameLoop); // Built-in window.requestAnimationFrame() method; see documentation: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 }
 
-gameLoop();
+gameLoop(); // Calling game loop
