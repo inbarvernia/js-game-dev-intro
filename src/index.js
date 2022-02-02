@@ -1,7 +1,7 @@
 import Paddle from "./paddle.js"; // remember to include the file extension in the import statement - that's why it wasn't working before!
 
 const canvas = document.getElementById('gameScreen');
-let ctx = canvas.getContext('2d'); // ctx is a common abbreviation for context; the getContext method returns a drawing context, i.e. the way things are rendered on the canvas, such as 2d, or webGL for 3D objects
+const ctx = canvas.getContext('2d'); // ctx is a common abbreviation for context; the getContext method returns a drawing context, i.e. the way things are rendered on the canvas, such as 2d, or webGL for 3D objects
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600; // declaring these in order to be able to pass them as arguments when constructing the paddle object
@@ -13,3 +13,23 @@ ctx.clearRect(0, 0, canvas.width, canvas.height); // According to the tutorial, 
 const paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
 
 paddle.draw(ctx);
+
+
+
+let lastTime = 0;
+
+function gameLoop(timeStamp) {
+
+  let deltaTime = timeStamp - lastTime;
+  lastTime = timeStamp;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  paddle.update(deltaTime);
+  paddle.draw(ctx);
+
+
+  requestAnimationFrame(gameLoop);
+}
+
+gameLoop();

@@ -13,4 +13,10 @@ export default class Paddle {
     ctx.fillStyle = '#0099ee';
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
+
+  update(deltaTime) { // delta time is often abbreviated dt, and is often used in games to refer to change in time
+    if (!deltaTime) return;
+    
+    this.position.x += 5 / deltaTime;
+  }
 }
