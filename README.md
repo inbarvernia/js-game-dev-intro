@@ -1,0 +1,1 @@
+A repo for my code following freeCodeCamp's YouTube tutorial [Intro to Game Development with JavaScript](https://www.youtube.com/watch?v=3EMxBkqC4z0)
