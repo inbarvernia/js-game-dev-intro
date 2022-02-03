@@ -15,7 +15,7 @@ const paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
 
 paddle.draw(ctx);
 
-new InputHandler();
+new InputHandler(paddle);
 
 let lastTime = 0; // Game starting time
 
