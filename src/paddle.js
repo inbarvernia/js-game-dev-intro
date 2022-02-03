@@ -23,6 +23,10 @@ export default class Paddle {
     this.speed = this.maxSpeed;
   }
 
+  stop() {
+    this.speed = 0;
+  }
+
   draw(ctx) { // We will use the context variable from index.js as an argument for this function
     ctx.fillStyle = '#0099ee';
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
