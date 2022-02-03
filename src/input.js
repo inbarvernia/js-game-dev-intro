@@ -11,6 +11,17 @@ export default class InputHandler {
           break;
       }
     })
+
+    document.addEventListener('keyup', (event) => { // This function listens for a keyup event, i.e. when a player releases a key; this way we can make it so the paddle only moves while keys are pressed, and stops as soon as they are released
+      switch(event.key) {
+        case "ArrowLeft":
+          paddle.stop();
+          break;
+        case "ArrowRight":
+          paddle.stop();
+          break;
+      }
+    })
   }
 
 }
