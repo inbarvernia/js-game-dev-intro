@@ -7,7 +7,7 @@ export default class InputHandler {
           paddle.moveLeft();
           break;
         case "ArrowRight":
-          alert('move right');
+          paddle.moveRight();
           break;
       }
     })

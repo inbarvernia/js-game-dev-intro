@@ -6,6 +6,9 @@ export default class Paddle {
     this.maxSpeed = 7;
     this.speed = 0; // Default speed is 0 because the paddle should remain stationary until moved by player
 
+    this.gameWidth = gameWidth;
+    this.gameHeight = gameHeight; // Storing the canvas size as a variable so that it's accessible to other paddle functions outside of the constructor function
+
     this.position = {
       x: (gameWidth - this.width) / 2, // Placing the paddle in the missle of the x axis by setting its starting point (left edge) to halfway through the canvas minus half the width of the paddle
       y: gameHeight - this.height - 10 // Placing the paddle 10px up from the bottom of the canvas
@@ -17,7 +20,7 @@ export default class Paddle {
   }
 
   moveRight() {
-    this.speed = - this.maxSpeed;
+    this.speed = this.maxSpeed;
   }
 
   draw(ctx) { // We will use the context variable from index.js as an argument for this function
@@ -32,8 +35,8 @@ export default class Paddle {
     
     if (this.position.x < 0) {
       this.position.x = 0; // Stops paddle from going left beyond edge of canvas
-    } else if (this.position.x > (gameWidth - this.width)) { // i.e. if the left edge of the paddle is placed so that the right edge of the paddle reaches the right edge of the canvas
-      this.position.x = gameWidth - this.width; // Stops paddle from going beyond right edge of canvas
+    } else if (this.position.x > (this.gameWidth - this.width)) { // i.e. if the left edge of the paddle is placed so that the right edge of the paddle reaches the right edge of the canvas
+      this.position.x = this.gameWidth - this.width; // Stops paddle from going beyond right edge of canvas
     }
   }
 }
