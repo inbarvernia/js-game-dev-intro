@@ -16,6 +16,10 @@ export default class Paddle {
     this.speed = - this.maxSpeed; // Negative speed because it's moving to the left, i.e. lower on the x axis
   }
 
+  moveRight() {
+    this.speed = - this.maxSpeed;
+  }
+
   draw(ctx) { // We will use the context variable from index.js as an argument for this function
     ctx.fillStyle = '#0099ee';
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
@@ -26,6 +30,10 @@ export default class Paddle {
 
     this.position.x += this.speed; // Every delta time (i.e. every frame), the paddle will move depending on the speed it currently has, whether it's staitionary (0), moving left (- this.maxSpeed) or moving right (+ this.maxSpeed)
     
-    if (this.position.x < 0) this.position.x = 0; // Stops paddle from going left beyond edge of canvas
+    if (this.position.x < 0) {
+      this.position.x = 0; // Stops paddle from going left beyond edge of canvas
+    } else if (this.position.x > (gameWidth - this.width)) { // i.e. if the left edge of the paddle is placed so that the right edge of the paddle reaches the right edge of the canvas
+      this.position.x = gameWidth - this.width; // Stops paddle from going beyond right edge of canvas
+    }
   }
 }
