@@ -17,6 +17,10 @@ paddle.draw(ctx);
 
 new InputHandler(paddle);
 
+// Images:
+
+const ballImg = document.getElementById('ball_img'); // Gives the script access to the image by saving it to a variable
+
 let lastTime = 0; // Game starting time
 
 function gameLoop(timeStamp) {
@@ -29,6 +33,7 @@ function gameLoop(timeStamp) {
   paddle.update(deltaTime); // Updates paddle's coordinates based on speed in update function (+ 5/deltaTime)
   paddle.draw(ctx); // Re-draws paddle based on new coordinates
 
+  ctx.drawImage(ballImg, 10, 10, 16, 16); // Renders the image we accessed earlier in a fixed point on the canvas; the arguments are x axis position, y axis position, and optional width and height
 
   requestAnimationFrame(gameLoop); // Built-in window.requestAnimationFrame() method; see documentation: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 }
