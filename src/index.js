@@ -13,7 +13,7 @@ ctx.clearRect(0, 0, canvas.width, canvas.height); // According to the tutorial, 
 // According to MDN documentation, erasing the whole canvas in this way is commonly used at the start of each frame in an animation  (https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect)
 
 const paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
-const ball = new Ball();
+const ball = new Ball(GAME_WIDTH, GAME_HEIGHT);
 
 paddle.draw(ctx);
 
