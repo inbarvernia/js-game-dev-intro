@@ -31,6 +31,7 @@ function gameLoop(timeStamp) {
   paddle.update(deltaTime); // Updates paddle's coordinates based on speed in update function (+ 5/deltaTime)
   paddle.draw(ctx); // Re-draws paddle based on new coordinates
 
+  ball.update(deltaTime);
   ball.draw(ctx);
 
   requestAnimationFrame(gameLoop); // Built-in window.requestAnimationFrame() method; see documentation: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
