@@ -26,7 +26,7 @@ function gameLoop(timeStamp) {
   let deltaTime = timeStamp - lastTime; // Calculates time elapsed between current frame and previous frame
   lastTime = timeStamp; // sets up for above line in next frame's calculation
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clears canvas
+  ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT); // Clears canvas
 
   paddle.update(deltaTime); // Updates paddle's coordinates based on speed in update function (+ 5/deltaTime)
   paddle.draw(ctx); // Re-draws paddle based on new coordinates
@@ -36,4 +36,4 @@ function gameLoop(timeStamp) {
   requestAnimationFrame(gameLoop); // Built-in window.requestAnimationFrame() method; see documentation: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 }
 
-gameLoop(); // Calling game loop
+requestAnimationFrame(gameLoop); // Calling game loop through requestAnimationFrame, which also returns a valid time stamp; this allows us to remove the the conditional from the paddle update method for if ("deltaTime"), as it is now no longer necessary (since there will always be a delta time)

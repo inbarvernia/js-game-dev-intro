@@ -33,8 +33,7 @@ export default class Paddle {
   }
 
   update(deltaTime) { // Delta time is often abbreviated dt, and is often used in games to refer to change in time
-    if (!deltaTime) return; // Because delta time will be 0 for the first frame, and attempting to divide by 0 will cause problems, so instead we just return without moving the paddle
-
+    
     this.position.x += this.speed; // Every delta time (i.e. every frame), the paddle will move depending on the speed it currently has, whether it's staitionary (0), moving left (- this.maxSpeed) or moving right (+ this.maxSpeed)
     
     if (this.position.x < 0) {
