@@ -6,10 +6,12 @@ export default class Ball {
     this.position = { x: 10, y: 10};
     
     this.speed = {x: 2, y: 2};
+
+    this.size = 16;
   }
 
   draw(ctx) {
-    ctx.drawImage(this.image, this.position.x, this.position.y, 16, 16);
+    ctx.drawImage(this.image, this.position.x, this.position.y, this.size, this.size);
   }
 
   update(deltaTime) {
