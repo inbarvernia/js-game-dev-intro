@@ -38,8 +38,10 @@ export default class Ball {
     let topOfPAddle = this.game.paddle.position.y; // Because collision will always be between the bottom of the ball and the top of the paddle
     let leftOfPaddle = this.game.paddle.position.x;
     let rightOfPaddle = this.game.paddle.position.x + this.game.paddle.width;
+    let leftOfBall = this.position.x;
+    let rightOfBall = this.position.x + this.size; // My own improvement, so that any part of the ball touching the paddle will register a collison, rather than just the x point (i.e. left edge) of ball
 
-    if (bottomOfBall >= (topOfPAddle) && this.position.x > leftOfPaddle && this.position.x < rightOfPaddle) {
+    if (bottomOfBall >= (topOfPAddle) && rightOfBall > leftOfPaddle && leftOfBall < rightOfPaddle) {
       this.speed.y = - this.speed.y;
       this.position.y = topOfPAddle - this.size;
     }
