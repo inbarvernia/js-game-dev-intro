@@ -13,16 +13,16 @@ export default class Game {
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
 
+    this.gameObject = [this.ball, this.paddle] // Created this array for ease of use in update and draw functions: this way, even as we add more objects to the game (e.g. bricks), we don't need to keep adding object.update(deltaTime) to the update function below
+
     new InputHandler(this.paddle);
   }
 
   update(deltaTime) {
-    this.paddle.update(deltaTime);
-    this.ball.update(deltaTime);
+    this.gameObject.forEach(object => object.update(deltaTime));
   }
 
   draw(ctx) {
-    this.paddle.draw(ctx);
-    this.ball.draw(ctx);
+    this.gameObject.forEach(object => object.draw(ctx));
   }
 }
