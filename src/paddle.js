@@ -10,7 +10,7 @@ export default class Paddle {
     this.gameHeight = game.gameHeight; // Storing the canvas size as a variable so that it's accessible to other paddle functions outside of the constructor function
 
     this.position = {
-      x: (this.gameWidth - this.width) / 2, // Placing the paddle in the missle of the x axis by setting its starting point (left edge) to halfway through the canvas minus half the width of the paddle
+      x: (this.gameWidth - this.width) / 2, // Placing the paddle in the middle of the x axis by setting its starting point (left edge) to halfway through the canvas minus half the width of the paddle
       y: this.gameHeight - this.height - 10 // Placing the paddle 10px up from the bottom of the canvas
     }
   }
