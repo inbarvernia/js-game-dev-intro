@@ -20,4 +20,9 @@ export default class Game {
     this.paddle.update(deltaTime);
     this.ball.update(deltaTime);
   }
+
+  draw(ctx) {
+    this.paddle.draw(ctx);
+    this.ball.draw(ctx);
+  }
 }
