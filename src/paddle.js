@@ -1,17 +1,17 @@
 export default class Paddle {
-  constructor(gameWidth, gameHeight) {
+  constructor(game) {
     this.width = 130;
     this.height = 20;
 
     this.maxSpeed = 7;
     this.speed = 0; // Default speed is 0 because the paddle should remain stationary until moved by player
 
-    this.gameWidth = gameWidth;
-    this.gameHeight = gameHeight; // Storing the canvas size as a variable so that it's accessible to other paddle functions outside of the constructor function
+    this.gameWidth = game.gameWidth;
+    this.gameHeight = game.gameHeight; // Storing the canvas size as a variable so that it's accessible to other paddle functions outside of the constructor function
 
     this.position = {
-      x: (gameWidth - this.width) / 2, // Placing the paddle in the missle of the x axis by setting its starting point (left edge) to halfway through the canvas minus half the width of the paddle
-      y: gameHeight - this.height - 10 // Placing the paddle 10px up from the bottom of the canvas
+      x: (this.gameWidth - this.width) / 2, // Placing the paddle in the missle of the x axis by setting its starting point (left edge) to halfway through the canvas minus half the width of the paddle
+      y: this.gameHeight - this.height - 10 // Placing the paddle 10px up from the bottom of the canvas
     }
   }
 
