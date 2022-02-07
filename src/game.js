@@ -1,6 +1,6 @@
-import Ball from "./ball";
-import InputHandler from "./input";
-import Paddle from "./paddle";
+import Ball from "./ball.js";
+import InputHandler from "./input.js";
+import Paddle from "./paddle.js";
 
 export default class Game {
 
@@ -10,10 +10,10 @@ export default class Game {
   }
 
   start() {
-    const ball = new Ball(this);
-    const paddle = new Paddle(this);
+    this.ball = new Ball(this);
+    this.paddle = new Paddle(this);
 
-    new InputHandler(paddle);
+    new InputHandler(this.paddle);
   }
 
   update(deltaTime) {
