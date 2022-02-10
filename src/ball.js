@@ -1,3 +1,5 @@
+import { detectCollision } from "./collisionDetection.js";
+
 export default class Ball {
 
   constructor(game) {
@@ -32,18 +34,10 @@ export default class Ball {
     if (this.position.y > this.gameHeight - this.size || this.position.y < 0) {
       this.speed.y = - this.speed.y;
     }
-
-    // Detects collision with paddle:
-    let bottomOfBall = this.position.y + this.size;
-    let topOfPAddle = this.game.paddle.position.y; // Because collision will always be between the bottom of the ball and the top of the paddle
-    let leftOfPaddle = this.game.paddle.position.x;
-    let rightOfPaddle = this.game.paddle.position.x + this.game.paddle.width;
-    let leftOfBall = this.position.x;
-    let rightOfBall = this.position.x + this.size; // My own improvement, so that any part of the ball touching the paddle will register a collison, rather than just the x point (i.e. left edge) of ball
-
-    if (bottomOfBall >= (topOfPAddle) && rightOfBall > leftOfPaddle && leftOfBall < rightOfPaddle) {
+    
+    if (detectCollision(this, this.game.paddle)) {
       this.speed.y = - this.speed.y;
-      this.position.y = topOfPAddle - this.size;
+      this.position.y = this.game.paddle.position.y - this.size;
     }
   }
 
