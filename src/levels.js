@@ -14,6 +14,7 @@ export function buildLevel(game, level) {
       }
     })
   })
+  return bricks;
 };
 
 export const level1 = [
