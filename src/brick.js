@@ -21,4 +21,8 @@ export default class Brick {
       this.width, this.height
       );
   }
+
+  update(deltaTime) {
+    
+  }
 }
