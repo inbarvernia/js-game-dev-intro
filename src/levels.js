@@ -7,8 +7,8 @@ export function buildLevel(game, level) {
     row.forEach((brick, brickIndex) => {
       if (brick === 1) {
         let position = {
-          x: 80 * brickIndex,
-          y: 20 + 24 * rowIndex
+          x: 80 * brickIndex, // First number represents width of brick
+          y: 75 + 24 * rowIndex // First number represents desired distance between top bricks and top of game screen; second number represents height of brick
         }
         bricks.push(new Brick(game, position))
       }
@@ -18,7 +18,7 @@ export function buildLevel(game, level) {
 };
 
 export const level1 = [
-  [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+  [0, 1, 1, 0, 0, 0, 0, 1, 1, 0],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
