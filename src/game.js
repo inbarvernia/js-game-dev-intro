@@ -13,9 +13,12 @@ export default class Game {
   start() {
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
-    this.brick = new Brick(this, {x: 20, y: 20});
+    this.bricks = [];
+    for(let i = 0; i < 10; i ++) {
+      this.bricks.push(new Brick(this, {x: i * 52, y: 30}));
+    }
 
-    this.gameObject = [this.ball, this.paddle, this.brick] // Created this array for ease of use in update and draw functions: this way, even as we add more objects to the game (e.g. bricks), we don't need to keep adding object.update(deltaTime) to the update function below
+    this.gameObject = [this.ball, this.paddle, ...this.bricks] // Created this array for ease of use in update and draw functions: this way, even as we add more objects to the game (e.g. bricks), we don't need to keep adding object.update(deltaTime) to the update function below
 
     new InputHandler(this.paddle);
   }
