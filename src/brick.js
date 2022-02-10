@@ -12,4 +12,13 @@ export default class Brick {
     this.gameWidth = game.gameWidth;
     this.gameHeight = game.gameHeight;
   }
+
+  draw(ctx) {
+    ctx.drawImage(
+      this.image,
+      this.position.x,
+      this.position.y,
+      this.width, this.height
+      );
+  }
 }
