@@ -5,7 +5,7 @@ export default class Brick {
 
     this.position = position;
 
-    this.width = 52;
+    this.width = 80;
     this.height = 24;
 
     this.game = game; // Gives other methods in this class access to the game object, so that we can use it to refer to other game objects (paddle and bricks)
@@ -23,6 +23,6 @@ export default class Brick {
   }
 
   update(deltaTime) {
-    
+
   }
 }
