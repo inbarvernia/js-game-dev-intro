@@ -11,6 +11,8 @@ export default class Brick {
     this.width = 80;
     this.height = 24;
 
+    this.markForDeletion = false; // Creating this property so we can change it to true once hit
+
     this.game = game; // Gives other methods in this class access to the game object, so that we can use it to refer to other game objects (paddle and bricks)
     this.gameWidth = game.gameWidth;
     this.gameHeight = game.gameHeight;
@@ -28,6 +30,7 @@ export default class Brick {
   update(deltaTime) {
     if (detectCollision(this.game.ball, this)) {
       this.game.ball.speed.y = -this.game.ball.speed.y;
+      this.markForDeletion = true;
     }
   }
 }
