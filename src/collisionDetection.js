@@ -10,8 +10,8 @@ export function detectCollision(ball, gameObject) {
 
     if (bottomOfBall >= topOfObject &&
       topOfBAll <= bottomOfObject &&
-      rightOfBall > leftOfObject &&
-      leftOfBall < rightOfObject
+      rightOfBall >= leftOfObject &&
+      leftOfBall <= rightOfObject
     ) {
        return true;
     } else {
